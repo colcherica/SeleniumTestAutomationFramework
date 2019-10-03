@@ -16,7 +16,7 @@ static long endTime = System.currentTimeMillis();
     @BeforeAll
     public static void initialize() {
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver");
-        System.out.printf("Run started at time " + startTime);
+        System.out.print("Run started at time " + startTime);
         driver = new ChromeDriver();
         String URL = "http://the-internet.herokuapp.com/login";
         driver.get(URL);
