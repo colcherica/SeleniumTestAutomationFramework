@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
@@ -25,6 +24,13 @@ public class LoginPage {
     WebElement loginBtn;
     @FindBy(how = How.TAG_NAME, using = "h2")
     WebElement textTitlePage;
+    @FindBy(how = How.TAG_NAME, using = "h4")
+    WebElement textContentPage;
+    @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'flash error')]")
+    WebElement invalidPassword;
+    @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'flash error')]")
+    WebElement invalidUserName;
+
 
     public void setUserName(String strUserName){
         userName.sendKeys(strUserName);
@@ -38,9 +44,24 @@ public class LoginPage {
         loginBtn.click();
     }
 
-    public String getTextTitlePage(){
-        return textTitlePage.getText();
+    public boolean isPageOpened(){
+        System.out.printf(String.valueOf(textTitlePage.getText()));
+        return textTitlePage.getText().toString().contains("Login Page");
+    }
 
+    public String isPageContentAvailable(){
+        System.out.printf(textContentPage.getText());
+        return textContentPage.getText();
+    }
+
+    public boolean errorPasswordMsg(){
+        System.out.println(invalidPassword.getText());
+        return invalidPassword.getText().toString().contains("Your password is invalid!");
+    }
+
+    public boolean errorUserNameMsg(){
+        System.out.printf(invalidUserName.getText());
+        return invalidUserName.getText().toString().contains("Your username is invalid!");
     }
 
 
