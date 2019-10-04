@@ -32,9 +32,9 @@ public class HomePage {
         return loginSuccessMsg.getText().contains("You logged into a secure area!");
     }
 
-    public boolean isTitlePageavailable(){
+    public void isTitlePageavailable(){
         System.out.println(titlePage.getText() + " \n");
-        return titlePage.getText().contains(" Secure Area");
+        titlePage.getText();
     }
 
     public void clickLogoutBtn(){
