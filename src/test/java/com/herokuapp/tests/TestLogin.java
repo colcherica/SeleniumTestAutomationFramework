@@ -1,6 +1,7 @@
 package com.herokuapp.tests;
 
 import com.herokuapp.Base;
+import com.herokuapp.webpages.HomePage;
 import com.herokuapp.webpages.LoginPage;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.PageFactory;
@@ -16,6 +17,12 @@ public class TestLogin extends Base {
         loginPage.setUserName("tomsmith");
         loginPage.setPassword("SuperSecretPassword!");
         loginPage.clickLoginBtn();
+
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+        homePage.successMsg();
+        homePage.isTitlePageavailable();
+        homePage.clickLogoutBtn();
+
     }
 
     @Test

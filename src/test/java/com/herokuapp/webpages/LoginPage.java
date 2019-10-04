@@ -47,23 +47,23 @@ public class LoginPage {
     }
 
     public boolean isPageOpened(){
-        System.out.printf(String.valueOf(textTitlePage.getText()));
-        return textTitlePage.getText().toString().contains("Login Page");
+        System.out.printf(textTitlePage.getText() + "\n");
+        return textTitlePage.getText().contains("Login Page");
     }
 
     public String isPageContentAvailable(){
-        System.out.printf(textContentPage.getText());
+        System.out.printf(textContentPage.getText() + "\n");
         return textContentPage.getText();
     }
 
     public boolean errorPasswordMsg(){
-        System.out.println(invalidPassword.getText());
-        return invalidPassword.getText().toString().contains("Your password is invalid!");
+        System.out.println(invalidPassword.getText() + "\n");
+        return invalidPassword.getText().contains("Your password is invalid!");
     }
 
     public boolean errorUserNameMsg(){
-        System.out.printf(invalidUserName.getText());
-        return invalidUserName.getText().toString().contains("Your username is invalid!");
+        System.out.printf(invalidUserName.getText() + "\n");
+        return invalidUserName.getText().contains("Your username is invalid!");
     }
 
 
