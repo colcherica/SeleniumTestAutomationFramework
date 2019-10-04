@@ -3,13 +3,14 @@ package com.herokuapp.tests;
 import com.herokuapp.Base;
 import com.herokuapp.webpages.HomePage;
 import com.herokuapp.webpages.LoginPage;
-import org.junit.jupiter.api.Test;
+
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Test;
 
 
 public class TestLogin extends Base {
 
-    @Test
+    @Test(priority = 0)
     public void login_validation(){
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.isPageOpened();
