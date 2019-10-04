@@ -10,12 +10,12 @@ public class TestLogin extends Base {
 
     @Test
     public void login_validation(){
-            LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-            loginPage.isPageOpened();
-            loginPage.isPageContentAvailable();
-            loginPage.setUserName("tomsmith");
-            loginPage.setPassword("SuperSecretPassword!");
-            loginPage.clickLoginBtn();
+        LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+        loginPage.isPageOpened();
+        loginPage.isPageContentAvailable();
+        loginPage.setUserName("tomsmith");
+        loginPage.setPassword("SuperSecretPassword!");
+        loginPage.clickLoginBtn();
     }
 
     @Test
