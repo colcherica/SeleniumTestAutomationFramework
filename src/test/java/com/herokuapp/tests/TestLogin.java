@@ -14,10 +14,6 @@ public class TestLogin extends Base {
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.isPageOpened();
         loginPage.isPageContentAvailable();
-        loginPage.setUserName("tomsmith");
-        loginPage.setPassword("SuperSecretPassword!");
-        loginPage.clickLoginBtn();
-
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         homePage.successMsg();
         homePage.isTitlePageavailable();
@@ -28,8 +24,11 @@ public class TestLogin extends Base {
     @Test
     public void neg_password_login_validation(){
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        loginPage.setUserName("tomsmith");
-        loginPage.setPassword("ssasda");
+        try {
+            loginPage.loginToInternet("tomsmith", "Super");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         loginPage.clickLoginBtn();
         loginPage.errorPasswordMsg();
 
