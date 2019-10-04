@@ -16,6 +16,9 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
+    /**
+     * All WebElements are identified by @FindBy annotation
+     */
 //    Locators
 
     @FindBy(how = How.ID,using = "username")
@@ -47,13 +50,26 @@ public class LoginPage {
     }
 
     public boolean isPageOpened(){
-        System.out.printf(textTitlePage.getText() + "\n");
-        return textTitlePage.getText().contains("Login Page");
+
+        try {
+             textTitlePage.getText().contains("Login Page");
+             System.out.printf(textTitlePage.getText() + "\n");
+             return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
-    public String isPageContentAvailable(){
-        System.out.printf(textContentPage.getText() + "\n");
-        return textContentPage.getText();
+    public boolean isPageContentAvailable(){
+        try {
+            System.out.printf(textContentPage.getText() + "\n");
+            textContentPage.getText();
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     public boolean errorPasswordMsg(){
@@ -64,6 +80,16 @@ public class LoginPage {
     public boolean errorUserNameMsg(){
         System.out.printf(invalidUserName.getText() + "\n");
         return invalidUserName.getText().contains("Your username is invalid!");
+    }
+
+    public void loginToInternet( String strUserName, String srtPassword) throws Exception{
+        try {
+            this.setUserName(strUserName);
+            this.setPassword(srtPassword);
+            this.clickLoginBtn();
+        }catch (Exception e){
+            throw (e);
+        }
     }
 
 
