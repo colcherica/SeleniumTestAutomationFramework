@@ -14,7 +14,7 @@ public class Base {
 
 public static WebDriver driver;
 
-    @BeforeClass
+    @BeforeTest
     public static void setUp() {
 
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver");
@@ -26,7 +26,7 @@ public static WebDriver driver;
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
-    @AfterClass
+    @AfterTest
     public static void tearDown(){
         if (driver != null){
             driver.quit();

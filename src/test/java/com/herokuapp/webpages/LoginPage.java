@@ -6,12 +6,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+
+import java.net.URL;
+
 public class LoginPage {
 
-    private WebDriver driver;
+     WebDriver driver;
 
 //    constructor page
-    public LoginPage(WebDriver driver){
+    public LoginPage ( WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -21,7 +26,7 @@ public class LoginPage {
      */
 //    Locators
 
-    @FindBy(how = How.ID,using = "username")
+    @FindBy(how = How.ID, using = "username")
     WebElement userName;
     @FindBy(how = How.ID, using = "password")
     WebElement password;
@@ -33,11 +38,11 @@ public class LoginPage {
     WebElement textContentPage;
     @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'flash error')]")
     WebElement invalidPassword;
-    @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'flash error')]")
+   @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'flash error')]")
     WebElement invalidUserName;
 
 
-    public void setUserName(String strUserName){
+    public void setUserName( String strUserName){
         userName.sendKeys(strUserName);
     }
 
@@ -49,47 +54,52 @@ public class LoginPage {
         loginBtn.click();
     }
 
-    public boolean isPageOpened(){
+    public void isPageOpened(){
+        textTitlePage.getText();
+        if (textTitlePage.isDisplayed()){
+            System.out.println("Title is present " + textTitlePage.getText() + "\n");
+        }else {
+            System.out.println("Title is not present " + textTitlePage.getText());
+        }
+    }
 
-        try {
-             textTitlePage.getText().contains("Login Page");
-             System.out.printf(textTitlePage.getText() + "\n");
-             return true;
-        }catch (Exception e){
-            return false;
+    public void isPageContentAvailable(){
+        textContentPage.getText();
+    }
+
+    public void errorPasswordMsg() {
+        invalidPassword.getText();
+
+    }
+
+    public void errorUserNameMsg(){
+       invalidUserName.getText();
+        if (invalidUserName.isDisplayed()){
+            System.out.println("Error message for invalid username is present : " + invalidUserName.getText());
+        }else {
+            System.out.println("Error message for invalid username is not present : " + invalidUserName.getText());
+        }
+    }
+
+    public void loginToInternet( String strUserName, String srtPassword) {
+        this.setUserName(strUserName);
+        this.setPassword(srtPassword);
+        this.clickLoginBtn();
+    }
+
+    public void getRespondsCode ( String actualUrl) throws IOException {
+        URL url = new URL(actualUrl);
+        HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.connect();
+
+        int code  = connection.getResponseCode();
+        if (code == HttpURLConnection.HTTP_OK){
+            System.out.print(" Code is: " + code + " " + true);
+        }else {
+            System.out.print("Code is: " + code + " " + false);
         }
 
-    }
-
-    public boolean isPageContentAvailable(){
-        try {
-            System.out.printf(textContentPage.getText() + "\n");
-            textContentPage.getText();
-            return true;
-        }catch (Exception e){
-            return false;
-        }
-
-    }
-
-    public boolean errorPasswordMsg(){
-        System.out.println(invalidPassword.getText() + "\n");
-        return invalidPassword.getText().contains("Your password is invalid!");
-    }
-
-    public boolean errorUserNameMsg(){
-        System.out.printf(invalidUserName.getText() + "\n");
-        return invalidUserName.getText().contains("Your username is invalid!");
-    }
-
-    public void loginToInternet( String strUserName, String srtPassword) throws Exception{
-        try {
-            this.setUserName(strUserName);
-            this.setPassword(srtPassword);
-            this.clickLoginBtn();
-        }catch (Exception e){
-            throw (e);
-        }
     }
 
 

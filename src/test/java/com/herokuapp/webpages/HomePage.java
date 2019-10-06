@@ -7,8 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
-
-    private WebDriver driver;
+    WebDriver driver;
 
     public HomePage ( WebDriver driver ) {
         this.driver = driver;
@@ -21,20 +20,26 @@ public class HomePage {
     @FindBy(how = How.TAG_NAME, using = "h2")
     WebElement titlePage;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\'content\']/div/a/i")
+    @FindBy(how = How.XPATH, using = "//*[@id='content']/div/a/i")
     WebElement logoutBtn;
 
+    public void successMsg(){
+        loginSuccessMsg.getText();
+        if (loginSuccessMsg.isDisplayed()){
+            System.out.println("Success login message is present " + loginSuccessMsg.getText());
+        }else {
+            System.out.println("Success login message is not present " + loginSuccessMsg.getText());
+        }
 
-
-
-    public boolean successMsg(){
-        System.out.println(loginSuccessMsg.getText() + " \n");
-        return loginSuccessMsg.getText().contains("You logged into a secure area!");
     }
 
-    public void isTitlePageavailable(){
-        System.out.println(titlePage.getText() + " \n");
+    public void isTitlePageAvailable(){
         titlePage.getText();
+        if (titlePage.isDisplayed()){
+            System.out.println("Title of Home Page is present " + titlePage.getText());
+        }else {
+            System.out.println("Title of Home Page is not present " + titlePage.getText());
+        }
     }
 
     public void clickLogoutBtn(){
