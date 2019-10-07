@@ -49,15 +49,18 @@ public class LoginPage {
     }
 
     public void clickLoginBtn(){
-        loginBtn.click();
+        if (loginBtn.isDisplayed()) {
+            loginBtn.click();
+        }
     }
 
     public void isTitlePageAvailable(){
-
-        if (textTitlePage.isDisplayed()){
-            System.out.println("Title of Login Page is present " + textTitlePage.getText() + "\n");
+        String expectedTitle = "Login Page";
+        String actualTitle = textTitlePage.getText();
+        if (expectedTitle.equals(actualTitle)){
+            System.out.println("Success - The correct title is displayed on the page ");
         }else {
-            System.out.println("Title of Login Page is not present " + textTitlePage.getText());
+            System.out.println("Failed - An incorrect title is displayed on the page");
         }
     }
 
