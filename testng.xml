@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/home/casian/IdeaProjects/SeleniumTest"><classes><class name="com.herokuapp.tests.TestLogin"><methods><include name="login_validation"/><include name="login_validation_with_response_code"/><include name="neg_password_login_validation"/><include name="neg_userName_login_validation"/></methods></class></classes></test></suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/colcherc/IdeaProjects/SeleniumTestAutomationFramework">
+        <classes>
+            <class name="com.herokuapp.tests.TestLogin">
+                <methods>
+                    <include name="login_validation"/>
+                    <include name="login_validation_with_response_code"/>
+                    <include name="neg_password_login_validation"/>
+                    <include name="neg_userName_login_validation"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
