@@ -33,10 +33,12 @@ public class HomePage {
     }
 
     public void isTitlePageAvailable(){
-        if (titlePage.isDisplayed()){
-            System.out.println("Title of Home Page is present " + titlePage.getText());
+        String expectedTitle = "Secure Area";
+        String actualTitle = titlePage.getText();
+        if (expectedTitle.equals(actualTitle)){
+            System.out.println("Success - The correct title is displayed on the page ");
         }else {
-            System.out.println("Title of Home Page is not present " + titlePage.getText());
+            System.out.println("Failed - An incorrect title is displayed on the page");
         }
     }
 
