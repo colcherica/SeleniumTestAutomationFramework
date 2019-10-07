@@ -12,9 +12,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class LoginPage {
-
+    WebDriver driver;
     //    constructor page
     public LoginPage ( WebDriver driver){
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -24,7 +25,7 @@ public class LoginPage {
 //    Locators
 
     @FindBy(how = How.ID, using = "username")
-    private WebElement userName;
+    WebElement userName;
     @FindBy(how = How.ID, using = "password")
     WebElement password;
     @FindBy(how = How.XPATH,using = ".//button[contains(@type, 'submit')]")
@@ -35,7 +36,7 @@ public class LoginPage {
     WebElement textContentPage;
     @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'flash error')]")
     WebElement invalidPassword;
-   @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'flash error')]")
+    @FindBy(how = How.XPATH, using = ".//div[contains(@class, 'flash error')]")
     WebElement invalidUserName;
 
 
@@ -51,26 +52,34 @@ public class LoginPage {
         loginBtn.click();
     }
 
-    public void isPageOpened(){
-        textTitlePage.getText();
+    public void isTitlePageAvailable(){
+
         if (textTitlePage.isDisplayed()){
-            System.out.println("Title is present " + textTitlePage.getText() + "\n");
+            System.out.println("Title of Login Page is present " + textTitlePage.getText() + "\n");
         }else {
-            System.out.println("Title is not present " + textTitlePage.getText());
+            System.out.println("Title of Login Page is not present " + textTitlePage.getText());
         }
     }
 
     public void isPageContentAvailable(){
         textContentPage.getText();
+        if (textContentPage.isDisplayed()){
+            System.out.println("Content of page is present: " + textContentPage.getText());
+        }else {
+            System.out.println("content of page is not present : " + textContentPage.getText());
+        }
     }
 
     public void errorPasswordMsg() {
-        invalidPassword.getText();
+        if (invalidPassword.isDisplayed()){
+            System.out.println("Error message for invalid password is present : " + invalidPassword.getText());
+        }else {
+            System.out.println("Error message for invalid password is not present : " + invalidPassword.getText());
+        }
 
     }
 
     public void errorUserNameMsg(){
-       invalidUserName.getText();
         if (invalidUserName.isDisplayed()){
             System.out.println("Error message for invalid username is present : " + invalidUserName.getText());
         }else {

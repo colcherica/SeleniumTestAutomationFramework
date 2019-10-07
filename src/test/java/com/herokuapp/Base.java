@@ -15,7 +15,7 @@ protected static WebDriver driver;
     @BeforeTest
     public static void setUp(){
 
-        System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","drivers/chromedriver");
         driver = new ChromeDriver();
         String URL = "http://the-internet.herokuapp.com/login";
         driver.get(URL);

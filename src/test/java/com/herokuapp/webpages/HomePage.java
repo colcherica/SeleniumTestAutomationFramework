@@ -24,7 +24,6 @@ public class HomePage {
     WebElement logoutBtn;
 
     public void successMsg(){
-        loginSuccessMsg.getText();
         if (loginSuccessMsg.isDisplayed()){
             System.out.println("Success login message is present " + loginSuccessMsg.getText());
         }else {
@@ -34,7 +33,6 @@ public class HomePage {
     }
 
     public void isTitlePageAvailable(){
-        titlePage.getText();
         if (titlePage.isDisplayed()){
             System.out.println("Title of Home Page is present " + titlePage.getText());
         }else {

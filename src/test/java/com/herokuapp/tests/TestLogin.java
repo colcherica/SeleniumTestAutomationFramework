@@ -18,7 +18,7 @@ public class TestLogin extends Base {
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 
         log.info("Login to " + driver.getCurrentUrl());
-        loginPage.isPageOpened();
+        loginPage.isTitlePageAvailable();
         loginPage.isPageContentAvailable();
         loginPage.loginToInternet("tomsmith", "SuperSecretPassword!");
 
@@ -47,7 +47,6 @@ public class TestLogin extends Base {
     public void neg_password_login_validation(){
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.loginToInternet("tomsmith", "Super");
-        loginPage.clickLoginBtn();
         loginPage.errorPasswordMsg();
 
     }
@@ -56,7 +55,6 @@ public class TestLogin extends Base {
     public void neg_userName_login_validation(){
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         loginPage.loginToInternet("toms", "SuperSecretPassword!");
-        loginPage.clickLoginBtn();
         loginPage.errorUserNameMsg();
 
     }
