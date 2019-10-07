@@ -13,11 +13,8 @@ import java.net.URL;
 
 public class LoginPage {
 
-     WebDriver driver;
-
-//    constructor page
+    //    constructor page
     public LoginPage ( WebDriver driver){
-        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -27,7 +24,7 @@ public class LoginPage {
 //    Locators
 
     @FindBy(how = How.ID, using = "username")
-    WebElement userName;
+    private WebElement userName;
     @FindBy(how = How.ID, using = "password")
     WebElement password;
     @FindBy(how = How.XPATH,using = ".//button[contains(@type, 'submit')]")
@@ -42,11 +39,11 @@ public class LoginPage {
     WebElement invalidUserName;
 
 
-    public void setUserName( String strUserName){
+    private void setUserName(String strUserName){
         userName.sendKeys(strUserName);
     }
 
-    public void setPassword(String srtPassword){
+    private void setPassword(String srtPassword){
         password.sendKeys(srtPassword);
     }
 
@@ -95,9 +92,9 @@ public class LoginPage {
 
         int code  = connection.getResponseCode();
         if (code == HttpURLConnection.HTTP_OK){
-            System.out.print(" Code is: " + code + " " + true);
+            System.out.print(" Response Code from GET is: " + code + " " + true);
         }else {
-            System.out.print("Code is: " + code + " " + false);
+            System.out.print("Response Code from GET is: " + code + " " + false);
         }
 
     }
