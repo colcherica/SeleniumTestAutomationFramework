@@ -74,7 +74,7 @@
                 <configuration>
                     <!-- Old design where we can hard code TestNG suite in pom.xml -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>/Jenkins/workspace/FreeCrmTestJob/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>//Jenkins//workspace//FreeCrmTestJob//testng.xml</suiteXmlFile>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
