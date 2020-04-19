@@ -16,8 +16,8 @@ protected static WebDriver driver;
     @BeforeTest
     public static void setUp(){
 
-        System.setProperty("webdriver.gecko.driver","drivers/geckodriver");
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver","drivers\\chromedriver.exe");
+        driver = new ChromeDriver();
         String URL = "http://the-internet.herokuapp.com/login";
         driver.get(URL);
 

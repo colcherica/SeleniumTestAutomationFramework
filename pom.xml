@@ -74,7 +74,7 @@
                 <configuration>
                     <!-- Old design where we can hard code TestNG suite in pom.xml -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>C:\Program Files (x86)\Jenkins\workspace\FreeCrmTestJob\testng.xml</suiteXmlFile>
+                        <suiteXmlFile>C:\Users\CasianColcher\IdeaProjects\SeleniumTestAutomationFramework\testng.xml</suiteXmlFile>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
