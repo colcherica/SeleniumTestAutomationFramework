@@ -1,5 +1,7 @@
 package com.herokuapp.webpages;
 
+import com.sun.deploy.security.SelectableSecurityManager;
+import org.apache.log4j.net.SyslogAppender;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -43,6 +45,11 @@ public class HomePage {
     }
 
     public void clickLogoutBtn(){
+        if (logoutBtn.isDisplayed()){
+            System.out.println("Logout button is present in the page" + logoutBtn.getText());
+        }else {
+            System.out.println("Logout button is not present in the page" + logoutBtn.getText());
+        }
         logoutBtn.click();
     }
 }

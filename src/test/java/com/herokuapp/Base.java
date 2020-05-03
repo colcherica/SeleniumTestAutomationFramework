@@ -1,12 +1,11 @@
 package com.herokuapp;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public class Base {
@@ -14,7 +13,7 @@ public class Base {
 protected static WebDriver driver;
 
     @BeforeTest
-    public static void setUp(){
+    public static void setUp() {
 
         System.setProperty("webdriver.chrome.driver","drivers\\chromedriver.exe");
         driver = new ChromeDriver();
