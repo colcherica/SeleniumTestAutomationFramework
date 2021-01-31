@@ -1,7 +1,4 @@
 package com.herokuapp.webpages;
-
-import com.sun.deploy.security.SelectableSecurityManager;
-import org.apache.log4j.net.SyslogAppender;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

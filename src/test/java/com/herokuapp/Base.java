@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
-import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public class Base {
@@ -17,7 +15,8 @@ protected static WebDriver driver;
 
         System.setProperty("webdriver.chrome.driver","drivers\\chromedriver.exe");
         driver = new ChromeDriver();
-        String URL = "http://the-internet.herokuapp.com/login";
+        // String URL = "http://the-internet.herokuapp.com/login";
+        String URL = "http://the-internet.herokuapp.com/dropdown";
         driver.get(URL);
 
         driver.manage().window().maximize();
