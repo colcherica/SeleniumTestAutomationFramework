@@ -1,5 +1,6 @@
 package com.herokuapp;
 
+import dataProvider.ConfigFileReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -9,18 +10,19 @@ import java.util.concurrent.TimeUnit;
 public class Base {
 
 protected static WebDriver driver;
+    private static ConfigFileReader configFileReader;
 
     @BeforeTest
     public static void setUp() {
 
-        System.setProperty("webdriver.chrome.driver","drivers\\chromedriver.exe");
+        configFileReader= new ConfigFileReader();
+        System.setProperty("webdriver.chrome.driver",configFileReader.getDriverPath());
         driver = new ChromeDriver();
-        // String URL = "http://the-internet.herokuapp.com/login";
-        String URL = "http://the-internet.herokuapp.com/dropdown";
-        driver.get(URL);
+
+        driver.get(configFileReader.getApplicationUrl() + "/login");
 
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(configFileReader.getImplicitlyWait(), TimeUnit.SECONDS);
     }
 
     @AfterTest
