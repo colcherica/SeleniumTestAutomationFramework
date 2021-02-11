@@ -4,6 +4,7 @@ import com.herokuapp.Base;
 import com.herokuapp.webpages.DropDownPage;
 import com.herokuapp.webpages.HomePage;
 import com.herokuapp.webpages.LoginPage;
+import dataProvider.ConfigFileReader;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
@@ -39,7 +40,8 @@ public class TestLogin extends Base {
         log.info("Login to" + driver.getCurrentUrl());
 
         loginPage.loginToInternet("tomsmith", "SuperSecretPassword!");
-        loginPage.getRespondsCode("http://the-internet.herokuapp.com/secure");
+        ConfigFileReader configFileReader = new ConfigFileReader();
+        loginPage.getRespondsCode(configFileReader.getApplicationUrl() + "/secure");
         homePage.clickLogoutBtn();
 
     }
