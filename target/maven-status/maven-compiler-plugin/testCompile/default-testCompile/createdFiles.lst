@@ -1,4 +1,6 @@
+com\herokuapp\webpages\DropDownPage.class
 com\herokuapp\Base.class
 com\herokuapp\webpages\HomePage.class
 com\herokuapp\tests\TestLogin.class
 com\herokuapp\webpages\LoginPage.class
+dataProvider\ConfigFileReader.class

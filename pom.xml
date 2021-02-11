@@ -65,6 +65,14 @@
             <version>3.141.59</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -163,7 +171,7 @@
                 <configuration>
                     <!-- Old design where we can hard code TestNG suite in pom.xml -->
                     <suiteXmlFiles>
-                        <suiteXmlFile>C:\Java\SeleniumTestAutomationFramework\testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src\main\java\test_report\testng.xml</suiteXmlFile>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
