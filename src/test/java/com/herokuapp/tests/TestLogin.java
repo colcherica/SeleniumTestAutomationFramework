@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 
 public class TestLogin extends Base {
     Logger log = Logger.getLogger(TestLogin.class.getName());
+    ConfigFileReader configFileReader = new ConfigFileReader();
 
     @Test()
     public void login_validation () {
@@ -36,11 +37,8 @@ public class TestLogin extends Base {
     public void login_validation_with_response_code() throws IOException {
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-
         log.info("Login to" + driver.getCurrentUrl());
-
         loginPage.loginToInternet("tomsmith", "SuperSecretPassword!");
-        ConfigFileReader configFileReader = new ConfigFileReader();
         loginPage.getRespondsCode(configFileReader.getApplicationUrl() + "/secure");
         homePage.clickLogoutBtn();
 
