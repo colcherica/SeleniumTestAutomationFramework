@@ -18,9 +18,7 @@ protected static WebDriver driver;
         configFileReader= new ConfigFileReader();
         System.setProperty("webdriver.chrome.driver",configFileReader.getDriverPath());
         driver = new ChromeDriver();
-
-        driver.get(configFileReader.getApplicationUrl() + "/login");
-
+        driver.get(configFileReader.getApplicationUrl());
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(configFileReader.getImplicitlyWait(), TimeUnit.SECONDS);
     }
