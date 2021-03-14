@@ -1,7 +1,6 @@
 package com.herokuapp.tests;
 
 import com.herokuapp.Base;
-import com.herokuapp.webpages.DropDownPage;
 import com.herokuapp.webpages.HomePage;
 import com.herokuapp.webpages.LoginPage;
 import dataProvider.ConfigFileReader;
@@ -58,11 +57,5 @@ public class TestLogin extends Base {
         loginPage.loginToInternet("toms", "SuperSecretPassword!");
         loginPage.errorUserNameMsg();
 
-    }
-
-    @Test
-    public void dropdownClick() throws Exception {
-        DropDownPage ddp = PageFactory.initElements(driver, DropDownPage.class);
-        ddp.clickOnDropDownMenu();
     }
 }
