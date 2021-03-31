@@ -1,7 +1,6 @@
 package com.herokuapp.tests;
 
 import com.herokuapp.Base;
-import com.herokuapp.webpages.A_B_TestingPage;
 import com.herokuapp.webpages.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
