@@ -5,18 +5,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+
 import java.util.concurrent.TimeUnit;
 
 public class Base {
 
-protected static WebDriver driver;
-    private static ConfigFileReader configFileReader;
+    protected static WebDriver driver;
 
     @BeforeTest
     public static void setUp() {
 
-        configFileReader= new ConfigFileReader();
-        System.setProperty("webdriver.chrome.driver",configFileReader.getDriverPath());
+        ConfigFileReader configFileReader = new ConfigFileReader();
+        System.setProperty("webdriver.chrome.driver", configFileReader.getDriverPath());
         driver = new ChromeDriver();
         driver.get(configFileReader.getApplicationUrl());
         driver.manage().window().maximize();
@@ -24,8 +24,8 @@ protected static WebDriver driver;
     }
 
     @AfterTest
-    public static void tearDown(){
-        if (driver != null){
+    public static void tearDown() {
+        if (driver != null) {
             driver.quit();
         }
     }
